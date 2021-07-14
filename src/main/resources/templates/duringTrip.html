@@ -1,0 +1,98 @@
+<div class="container" style="margin-bottom: 100px; margin-top: 50px">
+  <div id="map" style=" height: 700px;">
+
+
+  </div>
+  <div class="text-white fs-3 p-3" style="background-color: #0400ff">
+    Следна станица
+  </div>
+  <div class="p-3 border">
+        <span class="fs-3" id="nextLocation">
+            <img src="img/profile.jpg" class="rounded-circle me-3" style="width: 70px;height: 70px">
+            <span>Јована Јовановска, проценето време на пристигнување: 5 минути</span>
+        </span>
+  </div>
+</div>
+
+<div class="modal fade" id="meetingWithJovana" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body fs-2 text-center p-5">
+        Пристигнавте на локацијата на која треба да се сретнете со Јована
+      </div>
+      <div class="modal-footer d-grid gap-3 mx-auto mt-2">
+        <button id="meeting" type="button" class="btn btn-lg text-white" style="background-color: #0400ff" data-bs-dismiss="modal">Продолжи со патување</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script th:inline="javascript">
+
+
+  var map = L.map('map').setView([42.01217749043524, 21.512663991421228], 13);
+
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: 'OSM'})
+          .addTo(map);
+
+  var line = L.polyline([
+    [42.012217350892016, 21.512622584090348],
+    [42.01129264461788, 21.509489764260742],
+    [42.00883732479446, 21.508116473376532],
+    [42.00542522950609, 21.50227998711864],
+    [42.00450042449544, 21.498160114466014],
+    [42.00379883931328, 21.4928386122897],
+    [42.002842119778926, 21.489619961779837],
+    [42.00430908384937, 21.48082231705287],
+    [42.002810228851544, 21.470050564400623],
+    [42.0014389050778, 21.4625403798776],
+    [41.999334024949746, 21.449064961433606],
+    [42.00405396196762, 21.442413083713213],
+    [42.005967350206234, 21.439666501944796],
+    [42.00532956052046, 21.440996877488878],
+    [41.99911077601402, 21.44000982466585],
+    [41.99911077600972, 21.42958139508782],
+    [42.00255510103493, 21.42219995541477],
+    [42.00545711901581, 21.41692136857859],
+    [42.00383072963819, 21.415376416333856],
+    [42.00191727714277, 21.41361688738846],
+  ],{weight: 5})
+  map.addLayer(line);
+
+  L.marker([42.00192138967306, 21.413653995131117]).addTo(map)
+
+  var animatedMarker = L.animatedMarker(line.getLatLngs(),{
+    distance: 300,
+    interval: 1000,
+    autoStart: false,
+    onEnd: function() {
+      $('#nextLocation').children().remove();
+      $('#nextLocation').append('<i class="fas fa-map-marked-alt fs-1 ms-3 me-3"></i>\n' +
+              '<span class="me-3"> Пристигнавте на вашата дестинација</span>\n' +
+              '<a class="btn btn-block btn-lg text-white w-50" style="background-color: red" href="/tripSummary">\n' +
+              'Заврши патување\n' +
+              '</a>')
+    }
+  });
+  map.addLayer(animatedMarker);
+
+  animatedMarker.start();
+
+  setTimeout(function (){
+    animatedMarker.stop();
+    var meetingWithJovana = new bootstrap.Modal(document.getElementById('meetingWithJovana'));
+    meetingWithJovana.show();
+  },8500);
+
+  $('#meeting').click(function (){
+
+    $('#nextLocation').children().remove();
+
+    $('#nextLocation').append('<i class="fas fa-map-marked-alt fs-1 ms-3 me-3"></i>\n' +
+            '<span>Франклин Рузвелт, проценето време на пристигнување: 13 минути</span>');
+    animatedMarker.start();
+  })
+
+</script>

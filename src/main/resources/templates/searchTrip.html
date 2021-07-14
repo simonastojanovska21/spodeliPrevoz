@@ -1,0 +1,26 @@
+<div class="container">
+
+    <div style="margin-top: 100px; margin-bottom: 100px;">
+        <div class="col-md-12">
+            <label for="name" class="form-label fs-2 pb-2 fw-bold" style="color: #0400ff" >Пребарај патување</label>
+            <div class="input-group input-group-lg">
+                <span class="input-group-text" id="inputGroup"><i class="fas fa-map-marked-alt"></i></span>
+                <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroup" placeholder="Вашета дестинација (адреса)" required>
+                <a type="submit" class="btn btn-block text-white" style="background-color: #0400ff" href="/searchResults">Пребарај</a>
+            </div>
+        </div>
+        <div id="mapid" class="mt-4" style="height: 500px; margin: auto"></div>
+        <br>
+    </div>
+
+
+</div>
+
+
+<script th:inline="javascript">
+    var map = L.map('mapid', {center: [41.995961, 21.431476], zoom: 13});
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+</script>

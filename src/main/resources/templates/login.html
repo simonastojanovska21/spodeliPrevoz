@@ -1,0 +1,68 @@
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+    <div style="max-width: 600px; margin-top: 100px; margin-bottom: 100px; margin-left: 350px;">
+
+        <div class="ps-3 pe-3" style="padding-bottom: 50px;" >
+            <form class="row g-3 needs-validation" novalidate method="post" action="/login">
+
+                <h2  style="text-align: center">Најави се</h2>
+                <hr>
+
+                <div class="col-md-12">
+                    <label for="username" class="form-label" >Емаил адреса</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupEmail"><i class="fas fa-envelope"></i></span>
+                        <input type="text" class="form-control" id="username" name="username" aria-describedby="inputGroupEmail" placeholder="nekoj@primer.com" required>
+                        <div class="invalid-feedback">
+                            Ве молиме внесете ја вашата емаил адреса.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="password" class="form-label">Лозинка</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPassword"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                        <input type="password" class="form-control" id="password" name="password" aria-describedby="inputGroupPassword" placeholder="Вашата лозинка" required>
+                        <div class="invalid-feedback">
+                            Ве молиме внесете ја вашата лозинка.
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="btn btn-block mt-4" style="background-color: red; color: white;font-size: 20px;" type="submit">Најава</button>
+
+            </form>
+
+            <span class="m5-3 text-center">
+                Сеуште не сте регистрирани? <a href="/register">Регистрирај се</a>
+            </span>
+        </div>
+
+
+    </div>
+</div>
+
+
+<script th:inline="javascript">
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>

@@ -1,0 +1,92 @@
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+    <div style="max-width: 600px; margin-top: 100px; margin-bottom: 100px; margin-left: 350px; ">
+
+        <div class="ps-3 pe-3" style="padding-bottom: 50px;" >
+            <form class="row g-3 needs-validation" novalidate method="post" action="/register">
+
+                <h2  style="text-align: center">Регистрирај се</h2>
+                <hr>
+
+                <div class="col-md-12">
+                    <label for="fullName" class="form-label" >Име и презиме</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroup"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" id="fullName" name="fullName" aria-describedby="inputGroup" placeholder="Вашето име и презиме" required>
+                        <div class="invalid-feedback">
+                            Ве молиме внесете го вашето име и презиме
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <label for="telephoneNumber" class="form-label" >Телефонски број</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupTelephone"> <i class="fas fa-phone-alt"></i></span>
+                        <input type="text" class="form-control" id="telephoneNumber" name="telephoneNumber" aria-describedby="inputGroupTelephone"  placeholder="Пр. 070 123 456" required>
+                        <div class="invalid-feedback">
+                            Ве молиме внесете го вашиот телефонски број
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="username"class="form-label" >Емаил адреса</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupEmail"><i class="fas fa-envelope"></i></span>
+                        <input type="text" class="form-control" id="username" name="username" aria-describedby="inputGroupEmail" placeholder="nekoj@primer.com" required>
+                        <div class="invalid-feedback">
+                            Ве молиме внесете ја вашата емаил адреса.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="password" class="form-label">Лозинка</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPassword"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                        <input type="password" class="form-control" id="password" name="password" aria-describedby="inputGroupPassword" placeholder="Вашата лозинка" required>
+                        <div class="invalid-feedback">
+                            Ве молиме внесете ја вашата лозинка.
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="btn btn-block mt-4" style="background-color: red; color: white;font-size: 20px;" type="submit">Регистрирај се</button>
+
+            </form>
+
+            <span class="m5-3 text-center">
+                Веќе сте регистрирани? <a href="/login">Најави се</a>
+            </span>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<script th:inline="javascript">
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>

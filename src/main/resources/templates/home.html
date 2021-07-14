@@ -1,0 +1,31 @@
+<div class="container" xmlns:th="http://www.thymeleaf.org" >
+    <div>
+        <img th:src="@{/img/carpool.jpg}" class="d-block w-100" style="height: 400px;">
+        <div style="margin-top: -20px;">
+            <div class="mx-auto" style="width: 350px;">
+                <form class="align-items-center" method="get" action="/searchResults">
+                    <div class="input-group">
+                        <span class="input-group-text" id="inputGroup"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroup" placeholder="Вашета дестинација (адреса)">
+                        <button class="btn btn-block text-white" style="background-color: #0400ff" type="submit">Пребарај</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr class="">
+    <div class="row align-items-center">
+        <div class="col-6">
+            <img th:src="@{/img/car.jpg}" class="w-100">
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <h3 class="text-center mb-3" style="color: #0400ff">Која е твојата дестинација?</h3>
+            <h6 class="text-center mb-3" style="color: #0400ff">Ајде да го направиме ова твоето најекономичко и најинтересно патување</h6>
+            <a class="btn btn-block text-white" style="background-color: #0400ff;" href="/createTrip">Креирај патување</a>
+
+        </div>
+
+    </div>
+
+</div>

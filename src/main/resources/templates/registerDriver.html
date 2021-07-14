@@ -1,0 +1,290 @@
+
+<div class="container d-flex justify-content-center pt-2">
+    <div class="text-center pb-2 mt-5">
+        <h1 class="mb-3" style="text-align: center; color: #0400ff">Регистрирај се како возач</h1>
+    </div>
+</div>
+
+<div class="container d-flex justify-content-center pt-2">
+    <button type="button" class="btn btn-primary text-white" style="color: #0400ff" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Помош</button>
+</div>
+
+<div class="container d-flex justify-content-center " style="max-width:900px!important">
+    <div class="col-11 pt-3 collapse justify-content-center" id="collapseExample" >
+        <div class="card">
+            <div class="card-header font-weight-bold">Регистрирај се како возач</div>
+            <div class="card-body p-5">
+                За да може да креирате патувања потребно е да се регистрирате како возач. <br>
+                Процесот за регистрирање на возачи е во два чекори. <br>
+                Во првиот чекор внесувате информации за вашето возило. <br>
+                Истите мора да ги пополните со цел да продолжите на вториот чекор од процесот
+                на регистрација, а тоа е прикачување на фотографија од вашата возачка дозвола и сообраќајната дозвола на возилото.
+                <br>
+                Откако ќе биде проверена валидноста на информациите Вие би биле верифициран корисник
+                и би можеле да го користите системот во улога на возач.
+                <br>
+                <b>НАПОМЕНА!!!</b> <br>
+                <b>Системот ќе гарантира дека нема да има злоупотреба на кориснични внесените податоци.
+                    Исто така возачот има комплетна одговорност за валидноста на внесените податоци.
+                    Доколку истите се фалсификат случајот би бил проследен на соодветните правни органи.
+                </b>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container d-flex justify-content-center mb-5" style="max-width:900px!important">
+    <div class="col-11 col-offset-2">
+        <div class="progress mt-3" style="height: 30px;">
+            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="font-weight:bold; font-size:15px;" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="card mt-3">
+
+            <div id="vehicleInfo" class="card-body p-4 step" >
+                <div class="text-center">
+                    <h2 class="card-title font-weight-bold pb-2" style="color: #0400ff">Информации за возилото</h2>
+                </div>
+
+                <div class="col-md-12 ps-2 pe-2">
+                    <label for="makeModel" class="form-label" >Марка и модел на возилото <b style="color: #dc3545;">*</b></label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroup"><i class="fas fa-car"></i></span>
+                        <input type="text" class="form-control" id="makeModel" name="makeModel" aria-describedby="inputGroup" placeholder="Пр. Мерцедес Е 320" required>
+                        <div class="invalid-feedback">
+                            Ве молиме внесете ја марка и моделот на вашето возило
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 ps-2 pe-2">
+                    <label for="type" class="form-label" >Тип на возилото <b style="color: #dc3545;">*</b></label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroup7"><i class="fas fa-car-side"></i></span>
+                        <select name="type" id="type" class="form-control" required>
+                            <option th:each="tip : ${types}" th:text="${tip.name()}" ></option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Ве молиме одберете го типот на вашето возило
+                        </div>
+                    </div>
+
+                    <a class="pt-2 pb-2" type="button" style="text-decoration: underline; font-weight: bold" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Кој тип на возило го имам?
+                    </a>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Тип на возило</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-striped">
+                                        <tbody>
+                                        <tr>
+                                            <td>Мал автомобил</td>
+                                            <td>На пример: Volkswagen Polo, Ford Ka, Audi A1, Citroen C2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Седан</td>
+                                            <td>На пример: Volvo S70, Alfa Romeo 166, Audi A8, Peugeot 607</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Хачбек</td>
+                                            <td>На пример: Volkswagen Golf, Ford Focus, Peugeot 308, Ford Mondeo, Opel Vectra, Skoda Superb, Saab 900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Караван</td>
+                                            <td>
+                                                Затворен автомобил со поделен простор за седишта и багаж.
+                                                Сличен на седан но со поголем простор за багаж и посебна задна врата за багаж.
+                                                -На пример: Volvo V70, Audi Avant, Volkswagen Variant, Peugeot SW
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Теренско</td>
+                                            <td>На пример: Volvo XC60, Volkswagen Touareg, Jeep Cherokee</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Миниван</td>
+                                            <td>На пример: Seat Alhambra, Volkswagen Sharan, Renault Scenic, Chrysler Voyager</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-12 ps-2 pe-2">
+                    <label for="color" class="form-label" >Боја на возилото <b style="color: #dc3545;">*</b></label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroup1"><i class="fas fa-palette"></i></span>
+                        <input type="text" class="form-control" id="color" name="color" aria-describedby="inputGroup1" placeholder="Пр. зелена" required>
+                        <div class="invalid-feedback">
+                            Ве молиме внесете ја марка и моделот на вашето возило
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 ps-2 pe-2">
+                    <label for="registration" class="form-label" >Регистарска ознака на возилото <b style="color: #dc3545;">*</b></label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroup2"><i class="fas fa-ticket-alt"></i></i></span>
+                        <input type="text" class="form-control" id="registration" name="registration" aria-describedby="inputGroup2" placeholder="Пр. SK 1234 AA" required>
+                        <div class="invalid-feedback">
+                            Ве молиме внесете ја регистарската ознака на вашето возило
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 ps-2 pe-2">
+                    <label for="seats" class="form-label" >Максимален број на слободни седишта <b style="color: #dc3545;">*</b></label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroup3"><i class="fas fa-chair"></i></span>
+                        <input type="number" class="form-control" id="seats" name="seats" aria-describedby="inputGroup3" placeholder="Пр. 1" required>
+                        <div class="invalid-feedback">
+                            Ве молиме внесете го максималниот број на слободни седишта
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center text-muted">Полињата означени со <b style="color: #dc3545;">*</b> се задолжителни</div>
+            </div>
+            <div id="driverData" class="card-body p-5 step" style="display: none">
+
+                <div class="text-center">
+                    <h2 class="card-title font-weight-bold pb-2" style="color: #0400ff">Прикачи документи</h2>
+                </div>
+
+                <div class="col-md-12 ps-2 pe-2">
+                    <label for="makeModel" class="form-label" >Возачка дозвола <b style="color: #dc3545;">*</b></label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroup4"><i class="fas fa-file-upload"></i></span>
+                        <input class="form-control" type="file" id="formFile" aria-describedby="inputGroup4" required>
+                        <div class="invalid-feedback">
+                            Ве молиме прикачете фотографија од вашата возачка дозвола
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 ps-2 pe-2">
+                    <label for="makeModel" class="form-label" >Сообраќајна дозвола <b style="color: #dc3545;">*</b></label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroup5"><i class="fas fa-file-upload"></i></span>
+                        <input type="file" class="form-control" id="formFile1"  aria-describedby="inputGroup5"  required>
+                        <div class="invalid-feedback">
+                            Ве молиме прикачете фотографија од сообраќајната дозвола на вашето возило
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body p-5 step" style="display: none">
+
+                <h3 class="text-center" style="color: #0400ff">
+                    Вашите информации се успешно испратени.
+                    Истите ќе бидат проверени и во најкраток можен рок
+                    ќе добиете повратна информација.
+                </h3>
+
+            </div>
+
+
+            <div class="card-footer">
+                <button class="action back btn text-white" style="display: none; background-color: #0400ff; width: 200px;">Назад</button>
+                <button class="action next btn float-end text-white" style="background-color: #0400ff; width: 200px;" >Следно</button>
+                <a class="action submit btn text-white float-end" style="display: none;background-color: #0400ff; width: 200px;" href="/profile">Затвори</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script th:inline="javascript">
+
+    var step = 1;
+    $(document).ready(function () { stepProgress(step); });
+
+    $(".next").on("click", function () {
+        var nextstep = false;
+        if (step == 1 ) {
+            nextstep = checkForm("vehicleInfo");
+        }
+        else if(step == 2)
+        {
+            nextstep=checkForm("driverData");
+        }
+        else {
+            nextstep = true;
+        }
+        if (nextstep == true) {
+            if (step < $(".step").length) {
+                $(".step").show();
+                $(".step")
+                    .not(":eq(" + step++ + ")")
+                    .hide();
+                stepProgress(step);
+            }
+            hideButtons(step);
+        }
+    });
+
+    // ON CLICK BACK BUTTON
+    $(".back").on("click", function () {
+        if (step > 1) {
+            step = step - 2;
+            $(".next").trigger("click");
+        }
+        hideButtons(step);
+    });
+
+    // CALCULATE PROGRESS BAR
+    stepProgress = function (currstep) {
+        var percent = parseFloat(100 / $(".step").length) * currstep;
+        percent = percent.toFixed();
+        $(".progress-bar")
+            .css("width", percent + "%")
+            .html(percent + "%");
+    };
+
+    // DISPLAY AND HIDE "NEXT", "BACK" AND "SUMBIT" BUTTONS
+    hideButtons = function (step) {
+        var limit = parseInt($(".step").length);
+        $(".action").hide();
+        if (step < limit) {
+            $(".next").show();
+        }
+        if (step > 1) {
+            $(".back").show();
+        }
+        if (step == limit) {
+            $(".next").hide();
+            $(".submit").show();
+        }
+    };
+
+    function checkForm(val) {
+        // CHECK IF ALL "REQUIRED" FIELD ALL FILLED IN
+        var valid = true;
+        $("#" + val + " input:required").each(function () {
+            if ($(this).val() === "") {
+                $(this).addClass("is-invalid");
+                valid = false;
+            } else {
+                $(this).removeClass("is-invalid");
+            }
+        });
+
+        return valid;
+    }
+
+</script>

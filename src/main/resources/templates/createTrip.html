@@ -1,0 +1,87 @@
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+  <div style="max-width: 600px; margin-top: 100px; margin-bottom: 100px; margin-left: 350px; ">
+
+    <div class="ps-3 pe-3" style="padding-bottom: 50px;" >
+      <form class="row g-3 needs-validation" novalidate method="get" action="/successfullyCreatedTrip">
+
+        <h2  style="text-align: center; color: #0400ff">Креирај ново патување</h2>
+        <hr>
+
+        <div class="col-md-12">
+          <label for="name" class="form-label" >Почетна дестинација</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroup"><i class="fas fa-map-marked"></i></span>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroup" placeholder="Вашата почетна дестинација (адреса)" required>
+            <div class="invalid-feedback">
+              Ве молиме внесете ја почетната дестинација
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-12">
+          <label for="telephone" class="form-label" >Крајна дестинација</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupTelephone"> <i class="fas fa-map-marked-alt"></i></span>
+            <input type="text" class="form-control" id="telephone" name="telephone" aria-describedby="inputGroupTelephone"  placeholder="Вашата крајна дестинација (адреса)" required>
+            <div class="invalid-feedback">
+              Ве молиме внесете ја крајната дестинација
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <label for="price"class="form-label" >Цена на патувањето</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupEmail"><i class="fas fa-dollar-sign"></i></span>
+            <input type="number" class="form-control" id="price" name="price" aria-describedby="inputGroupEmail" placeholder="Цена на патувањето" required>
+            <div class="invalid-feedback">
+              Ве молиме внесете ја цената на патувањето
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <label for="time" class="form-label">Време на тргнување</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPassword"><i class="fas fa-clock"></i></span>
+            <input type="datetime-local" class="form-control" id="time" name="time" aria-describedby="inputGroupPassword" placeholder="Време на тргнување" required>
+            <div class="invalid-feedback">
+              Ве молиме внесете го времето на тргнување
+            </div>
+
+          </div>
+        </div>
+
+        <button class="btn btn-block mt-4" style="background-color: #0400ff; color: white;font-size: 20px;" type="submit">Креирај патување</button>
+
+      </form>
+    </div>
+
+
+  </div>
+</div>
+
+
+<script th:inline="javascript">
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+              }, false)
+            })
+  })()
+</script>

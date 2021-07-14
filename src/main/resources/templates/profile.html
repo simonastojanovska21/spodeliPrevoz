@@ -1,0 +1,46 @@
+<div class="container" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <div style="max-width: 600px; margin-top: 50px; margin-bottom: 100px; margin-left: 350px;">
+        <h2 class="mb-3" style="text-align: center; color: #0400ff">Мој профил</h2>
+        <img th:src="@{/img/profile.jpg}" class="rounded-circle mx-auto d-block" width="150px" height="150px" >
+        <h2 class="mb-3" style="text-align: center; color: #0400ff">Симона Стојановска</h2>
+
+        <ul class="d-grid gap-2 col-6 mx-auto list-unstyled">
+            <li>
+                <a class="btn btn-block text-white d-flex justify-content-between" style="background-color: red" href="/personalInfo">
+                    <div>Лични информации</div>
+                    <div><i  class="fa fa-arrow-right" aria-hidden="true"></i></div>
+                </a>
+            </li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_DRIVER')">
+                <a class="btn btn-block text-white d-flex justify-content-between" style="background-color: red" href="/registerDriver">
+                    <div>Регистрирај се како возач</div>
+                    <div><i  class="fa fa-arrow-right" aria-hidden="true"></i></div>
+                </a>
+            </li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_DRIVER')">
+                <a  class="btn btn-block text-white d-flex justify-content-between" style="background-color: red" href="/vehicleData">
+                    <div>Информации за возило</div>
+                    <div><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+                </a>
+            </li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_DRIVER')">
+                <a class="btn btn-block text-white d-flex justify-content-between" style="background-color: red" href="/createTrip">
+                    <div>Креирај патување</div>
+                    <div><i  class="fa fa-arrow-right" aria-hidden="true"></i></div>
+                </a>
+            </li>
+            <li>
+                <a class="btn btn-block text-white d-flex justify-content-between" style="background-color: red" href="/searchTrip">
+                    <div>Пребарај патување</div>
+                    <div><i  class="fa fa-arrow-right" aria-hidden="true"></i></div>
+                </a>
+            </li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_DRIVER')">
+                <a class="btn btn-block text-white d-flex justify-content-between" style="background-color: red" href="/myTrips">
+                    <div> Мои патувања</div>
+                    <div><i  class="fa fa-arrow-right" aria-hidden="true"></i></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

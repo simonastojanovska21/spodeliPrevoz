@@ -1,0 +1,204 @@
+<div class="container" >
+    <div style="margin-top: 50px;">
+        <div class="row container d-flex justify-content-center" style="height: 650px;">
+            <div class="col-md-5">
+                <h2 class="mb-5" style="text-align: center; color: #0400ff">Резултати од пребарувањето</h2>
+                <div id="noTrips" class="card-body p-5 step"style="display: none" >
+
+                    <h3 class="text-center" style="color: #0400ff" >
+                        За жал, нема патувања со крајната дестинација (адреса) која ја внесовте.
+                        Внесете нова дестинација или обидете се повторно подоцна.
+                        <div class="d-grid gap-3 mx-auto mt-5">
+                            <a class="btn  btn-block text-center text-white" style="background-color: #0400ff" >Назад</a>
+                        </div>
+                    </h3>
+
+                </div>
+                <div class="border mb-3 p-3" id="eden">
+
+                    <div class="row">
+                        <div class="col-3  text-center">
+                            <img src="img/profile.jpg" style="width: 90px;height: 90px; ">
+                            <i class="fas fa-star pt-3" style="color: yellow"></i> 4.85/5
+                        </div>
+                        <div class="col-9  text-center">
+                            Јована Јовановска
+                            <br>
+                            Ул. Франклин Рузвелт <br>
+                            Време на пристигнување: 5 минути <br>
+                            Цена: 150 денари
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-3 mx-auto mt-2">
+                        <button class="btn  btn-block text-center text-white kopce" style="background-color: #0400ff" data-name="Јована Јовановска">Испрати барање за превоз</button>
+                    </div>
+                </div>
+
+                <div class="border mb-3 p-3" id="dva">
+
+                    <div class="row">
+                        <div class="col-3  text-center">
+                            <img src="img/profile.jpg" style="width: 90px;height: 90px; ">
+                            <i class="fas fa-star pt-3" style="color: yellow"></i> 4.85/5
+                        </div>
+                        <div class="col-9  text-center">
+                            Андреј Андреевски
+                            <br>
+                            Ул. Франклин Рузвелт <br>
+                            Време на пристигнување: 10 минути <br>
+                            Цена: 180 денари
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-3 mx-auto mt-2">
+                        <button  class="btn btn-block text-center text-white kopce" style="background-color: #0400ff" data-name="Андреј Андреевски" >Испрати барање за превоз</button>
+                    </div>
+                </div>
+                <span class="mt-3 text-center">
+                    Не најдовте соодветно патување? <a href="/searchTrip">Пребарај повторно</a>
+                </span>
+
+        </div>
+
+
+        <nav class="navbar navbar-expand-md navbar-light ">
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <input type="checkbox" id="check"> <label class="chat-btn" for="check"> <i class="fa fa-commenting-o comment"></i> <i class="fa fa-close close"></i> </label>
+                        <div class="wrapper border">
+                            <div class="text-white d-flex justify-content-between" style="background-color: #0400ff;">
+                                <div>
+                                    <button type="button" class="btn text-white">
+                                        <h5><i class="far fa-user-circle"></i> <span id="ime"></span></h5>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn text-white" id="closeChat">
+                                        <h5><i class="fas fa-times"></i></h5>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-center p-2" id="messages" style="height: 300px; overflow-y: scroll">
+
+                                <div class="direct-chat-msg">
+                                    <img class="direct-chat-img" src="img/profile.jpg" alt="message user image">
+                                    <div class="direct-chat-text"> Ќе се сретнеме на улица... </div>
+                                </div>
+
+                                <!--                                <div class="direct-chat-msg right">-->
+                                <!--                                    <img class="direct-chat-img" src="profile.jpg" alt="message user image">-->
+                                <!--                                    <div class="direct-chat-text"> I would love to. </div>-->
+                                <!--                                </div>-->
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="message" name="name" aria-describedby="inputGroup" >
+                                    <button id="sendMessage" type="submit" class="btn btn-block text-white" style="background-color: #0400ff">Испрати</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+    </div>
+</div>
+
+</div>
+
+<div class="modal fade" id="successfulSendRequest" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body fs-1 text-center p-5">
+                Вашето барање е успешно испратено
+            </div>
+            <div class="modal-footer d-grid gap-3 mx-auto mt-2">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="acceptedRide" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body fs-1 text-center p-5">
+                <span id="driverName"></span> го прифати вашето барање за превоз.
+            </div>
+            <div class="modal-footer d-grid gap-3 mx-auto mt-2">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Продолжи</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    $(document).ready(function() {
+
+        $(".kopce").click(function (e) {
+
+            e.stopPropagation();
+            $("#check").prop("checked", false);
+            var name=$(this).attr('data-name');
+            var successfulSendRequest = new bootstrap.Modal(document.getElementById('successfulSendRequest'));
+            successfulSendRequest.show();
+
+            $('#messages').children().not(':first-child').remove();
+
+            $(this).text("Вашето барање е испратено");
+            $(this).prop("disabled", true);
+            $(this).css("background-color","grey")
+
+            setTimeout(function (){
+
+                $('#driverName').text(name);
+                var acceptedRide=new bootstrap.Modal(document.getElementById('acceptedRide'));
+                acceptedRide.show();
+
+                setTimeout(function (){
+                    const cb = document.getElementById('check');
+                    acceptedRide.hide();
+                    $('#ime').text(name);
+
+                    $("#check").prop("checked", true);
+                },3000);
+
+            },3000);
+
+        });
+
+        $('#sendMessage').click(function (){
+            var div=document.createElement('div');
+            div.className="direct-chat-msg right";
+
+            var image=document.createElement('img');
+            image.className="direct-chat-img";
+            image.src="img/profile.jpg";
+
+            var messageDiv=document.createElement('div');
+            messageDiv.className="direct-chat-text";
+            var message=$("#message").val();
+
+            var text=document.createTextNode(message);
+            messageDiv.appendChild(text);
+
+            div.appendChild(image);
+            div.appendChild(messageDiv);
+
+            $("#messages").append(div);
+
+            $("#message").val("");
+        });
+
+        $('#closeChat').click(function (){
+            $("#check").prop("checked", false);
+        });
+    })
+</script>
